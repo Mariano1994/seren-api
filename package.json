@@ -1,22 +1,24 @@
 {
-  "name": "seren",
-  "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
-  "scripts": {
-    "dev": "node --watch --experimental-strip-types src/server.ts"
-  },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
-  "devDependencies": {
-    "@types/node": "24.9.1",
-    "tsup": "8.5.0",
-    "typescript": "5.9.3"
-  },
-  "dependencies": {
-    "dotenv": "17.2.3",
-    "fastify": "5.6.1",
-    "zod": "4.1.12"
-  }
+	"name": "seren",
+	"version": "1.0.0",
+	"description": "",
+	"main": "index.js",
+	"scripts": {
+		"dev": "node --watch --experimental-strip-types src/server.ts",
+		"formatter": "pnpm exec biome check --write"
+	},
+	"keywords": [],
+	"author": "",
+	"license": "ISC",
+	"devDependencies": {
+		"@biomejs/biome": "2.2.7",
+		"@types/node": "24.9.1",
+		"tsup": "8.5.0",
+		"typescript": "5.9.3"
+	},
+	"dependencies": {
+		"dotenv": "17.2.3",
+		"fastify": "5.6.1",
+		"zod": "4.1.12"
+	}
 }
