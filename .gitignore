@@ -2,3 +2,5 @@ node_modules
 app-requires.md
 build
 .env
+
+/src/generated/prisma
