@@ -30,3 +30,8 @@
 - [ ] Os dados da aplicacao precisam estar persistidos numa base de dados PostgreSQL
 - [ ] Todas a listas de dados precisam estar paginadasS com 20 items por paginas
 - [ ] O usuario deve ser identificado por JTW (JSON WEB TOKEN )
+
+
+
+
+   
