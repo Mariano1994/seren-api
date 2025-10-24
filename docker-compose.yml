@@ -1,0 +1,14 @@
+
+
+services:
+  # PostgreSQL Database
+  postgres:
+    image: bitnami/postgresql
+    environment:
+      POSTGRESQL_USERNAME: docker
+      POSTGRESQL_PASSWORD: docker
+      POSTGRESQL_DATABASE: apiseren
+    ports:
+      - 5433:5432
+
+   
