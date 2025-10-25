@@ -1,6 +1,6 @@
 import type fastify from 'fastify';
 import z from 'zod';
-import { registerCase } from '../../use-cases/register-case.ts';
+import { registerUseCase } from '../../use-cases/register-case.ts';
 
 export async function register(
 	request: fastify.FastifyRequest,
@@ -15,7 +15,7 @@ export async function register(
 	const { name, email, password } = registerBodyShema.parse(request.body);
 
 	try {
-		registerCase({ name, email, password });
+		registerUseCase({ name, email, password });
 	} catch (error) {
 		return reply.status(409).send();
 	}
