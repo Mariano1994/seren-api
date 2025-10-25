@@ -1,6 +1,6 @@
 import type fastify from 'fastify';
 import z from 'zod';
-import { PrismaUsersRespository } from '../../respositories/prisma-users-repository.ts';
+import { PrismaUsersRespository } from '../../respositories/prisma/prisma-users-repository.ts';
 import { RegisterUseCase } from '../../use-cases/register-case.ts';
 
 export async function register(
