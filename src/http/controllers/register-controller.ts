@@ -21,7 +21,7 @@ export async function register(
 
 		await registerUseCase.handler({ name, email, password });
 	} catch (error) {
-		return reply.status(409).send();
+		return reply.status(409).send(error);
 	}
 
 	return reply.status(201).send();
