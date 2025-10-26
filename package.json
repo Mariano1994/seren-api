@@ -7,7 +7,9 @@
 	"scripts": {
 		"dev": "node --watch --experimental-strip-types src/server.ts",
 		"formatter": "pnpm exec biome check --write",
-		"test": "vitest"
+		"test": "vitest",
+		"test:coverage": "vitest --coverage",
+		"test:ui": "vitest --ui"
 	},
 	"keywords": [],
 	"author": "",
@@ -16,6 +18,8 @@
 		"@biomejs/biome": "2.2.7",
 		"@types/bcryptjs": "3.0.0",
 		"@types/node": "24.9.1",
+		"@vitest/coverage-v8": "4.0.3",
+		"@vitest/ui": "4.0.3",
 		"prisma": "6.18.0",
 		"tsup": "8.5.0",
 		"typescript": "5.9.3"

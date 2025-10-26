@@ -50,7 +50,7 @@ describe('Register Use Case ', async () => {
 			password: '123433546',
 		});
 
-		expect(async () => {
+		await expect(async () => {
 			await registerUseCase.handler({
 				name: 'mariano',
 				email,
