@@ -1,16 +1,20 @@
 import { hash } from 'bcryptjs';
-import { describe, expect, it } from 'vitest';
+import { beforeEach, describe, expect, it } from 'vitest';
 import { InMemoryUsersRepostory } from '../respositories/in-memory-repository/in-memory-users-repository.ts';
 import { AuthenticateUseCase } from './authenticate-case.ts';
 import { InvalidCredentialsError } from './erros/invalid-credentials-error.ts';
 
+let userRepository: InMemoryUsersRepostory;
+let sut: AuthenticateUseCase;
+
 describe('Autheticate Use Case', async () => {
-	it('Should able to authenticate the use', async () => {
-		const userRepository = new InMemoryUsersRepostory();
-
+	beforeEach(() => {
+		userRepository = new InMemoryUsersRepostory();
 		// sut => System Under Test
-		const sut = new AuthenticateUseCase(userRepository);
+		sut = new AuthenticateUseCase(userRepository);
+	});
 
+	it('Should able to authenticate the use', async () => {
 		await userRepository.create({
 			name: 'John Doe',
 			email: 'john.doe@gmail.com',
@@ -26,11 +30,8 @@ describe('Autheticate Use Case', async () => {
 	});
 
 	it('Should not be able to authenticate with a wrong email', async () => {
-		const userRepository = new InMemoryUsersRepostory();
-		const suit = new AuthenticateUseCase(userRepository);
-
 		await expect(async () => {
-			await suit.handler({
+			await sut.handler({
 				email: 'mariocapiliku@gmail.com',
 				password: '123456',
 			});
@@ -38,9 +39,6 @@ describe('Autheticate Use Case', async () => {
 	});
 
 	it('Should not be able to authenticate with a wrong password', async () => {
-		const userRepository = new InMemoryUsersRepostory();
-		const sut = new AuthenticateUseCase(userRepository);
-
 		const user = await userRepository.create({
 			name: 'John Doe',
 			email: 'john.doe@gmail.com',
