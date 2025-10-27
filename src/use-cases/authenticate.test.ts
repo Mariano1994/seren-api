@@ -39,13 +39,11 @@ describe('Autheticate Use Case', async () => {
 	});
 
 	it('Should not be able to authenticate with a wrong password', async () => {
-		const user = await userRepository.create({
+		await userRepository.create({
 			name: 'John Doe',
 			email: 'john.doe@gmail.com',
 			password_hash: await hash('123456', 6),
 		});
-
-		console.log(user);
 
 		await expect(async () => {
 			await sut.handler({
