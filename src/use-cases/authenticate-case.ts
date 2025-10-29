@@ -1,6 +1,6 @@
 import { compare } from 'bcryptjs';
 import type { User } from '../generated/prisma/client.ts';
-import type { UserRepository } from '../respositories/users-repositories.ts';
+import type { UserRepository } from '../respositories/users-repository.ts';
 import { InvalidCredentialsError } from './erros/invalid-credentials-error.ts';
 
 interface AuthenticationUseCasaRequest {
