@@ -1,7 +1,5 @@
 import type fastify from 'fastify';
 import z from 'zod';
-import { PrismaUsersRespository } from '../../respositories/prisma/prisma-users-repository.ts';
-import { AuthenticateUseCase } from '../../use-cases/authenticate-case.ts';
 import { InvalidCredentialsError } from '../../use-cases/erros/invalid-credentials-error.ts';
 import { makeAuthenticateUseCase } from '../../use-cases/factories/make-authenticate-use-case.ts';
 
