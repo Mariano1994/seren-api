@@ -6,8 +6,10 @@ import type { CheckInRepository } from '../check-ins-repository.ts';
 export class InMemoryCheckInRepository implements CheckInRepository {
 	public items: CheckIn[] = [];
 
-	async findManyByUserId(userId: string) {
-		return this.items.filter((item) => item.user_id === userId);
+	async findManyByUserId(userId: string, page: number) {
+		return this.items
+			.filter((item) => item.user_id === userId)
+			.slice((page - 1) * 20, 22);
 	}
 
 	async findByUserIdOnDate(userId: string, date: Date) {

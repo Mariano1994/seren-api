@@ -3,6 +3,7 @@ import type { CheckInRepository } from '../respositories/check-ins-repository.ts
 
 interface FetchUserCheckInsUseCaseRequest {
 	userId: string;
+	page: number;
 }
 
 interface FetchUserCheckInsUseCaseResponse {
@@ -18,8 +19,12 @@ export class FetchUserCheckInsUseCase {
 
 	async handler({
 		userId,
+		page,
 	}: FetchUserCheckInsUseCaseRequest): Promise<FetchUserCheckInsUseCaseResponse> {
-		const checkIns = await this.checkInRepository.findManyByUserId(userId);
+		const checkIns = await this.checkInRepository.findManyByUserId(
+			userId,
+			page,
+		);
 
 		return { checkIns };
 	}
