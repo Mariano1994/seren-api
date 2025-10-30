@@ -19,8 +19,8 @@ describe('Check in Use Case', () => {
 			title: 'DelsonGym',
 			description: ' ',
 			phone: '',
-			latitude: new Decimal(0),
-			logitude: new Decimal(0),
+			latitude: new Decimal(-12.3469824),
+			logitude: new Decimal(3.5888896),
 		});
 		vi.useFakeTimers();
 	});
@@ -38,8 +38,6 @@ describe('Check in Use Case', () => {
 			userLatitude: -12.3469824,
 			userLongitude: 3.5888896,
 		});
-
-		console.log({ date: checkIn.created_at });
 
 		expect(checkIn.id).toEqual(expect.any(String));
 	});
@@ -84,5 +82,25 @@ describe('Check in Use Case', () => {
 		});
 
 		expect(checkIn.id).toEqual(expect.any(String));
+	});
+
+	it('should not be able to check in on distant gym', async () => {
+		gymsRepository.items.push({
+			id: 'gym_id_02',
+			title: 'DelsonGym',
+			description: ' ',
+			phone: '',
+			latitude: new Decimal(-12.2757041),
+			logitude: new Decimal(13.8353953),
+		});
+
+		expect(async () => {
+			await sut.handler({
+				gymId: 'gym_id_02',
+				userId: 'user_id',
+				userLatitude: -12.3469824,
+				userLongitude: 3.5888896,
+			});
+		}).rejects.toBeInstanceOf(Error);
 	});
 });
