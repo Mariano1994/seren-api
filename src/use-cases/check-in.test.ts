@@ -3,6 +3,8 @@ import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest';
 import { InMemoryCheckInRepository } from '../respositories/in-memory-repository/in-memory-check-ins-repository.ts';
 import { InMemoryGymsRepository } from '../respositories/in-memory-repository/in-memory-gyms-repository.ts';
 import { CheckInUseCase } from './check-in-case.ts';
+import { MaxDistanceError } from './erros/max-distance-error.ts';
+import { MaxNumbetrOfCheckError } from './erros/max-numbers-of-check-ins-error.ts';
 
 let checkInUseCase: InMemoryCheckInRepository;
 let gymsRepository: InMemoryGymsRepository;
@@ -60,7 +62,7 @@ describe('Check in Use Case', () => {
 					userLatitude: -12.3469824,
 					userLongitude: 3.5888896,
 				}),
-		).rejects.toBeInstanceOf(Error);
+		).rejects.toBeInstanceOf(MaxNumbetrOfCheckError);
 	});
 
 	it('should able to check in twice, but in different days', async () => {
@@ -101,6 +103,6 @@ describe('Check in Use Case', () => {
 				userLatitude: -12.3469824,
 				userLongitude: 3.5888896,
 			});
-		}).rejects.toBeInstanceOf(Error);
+		}).rejects.toBeInstanceOf(MaxDistanceError);
 	});
 });

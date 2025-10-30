@@ -6,6 +6,10 @@ import type { CheckInRepository } from '../check-ins-repository.ts';
 export class InMemoryCheckInRepository implements CheckInRepository {
 	public items: CheckIn[] = [];
 
+	async findManyByUserId(userId: string) {
+		return this.items.filter((item) => item.user_id === userId);
+	}
+
 	async findByUserIdOnDate(userId: string, date: Date) {
 		const startOfTheDay = dayjs(date).startOf('date');
 		const endOfTheDay = dayjs(date).endOf('date');

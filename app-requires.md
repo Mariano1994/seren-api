@@ -8,17 +8,17 @@
 - [ ] Deve ser possivel o usuario obter o seu historico de check-ins
 - [ ] Deve ser possivel o usuario buscar academias proximas 
 - [ ] Deve ser possivel o usuario buscar academias pelo nome
-- [ ] Deve ser possivel o usuario realizar check-in em uma academia
+- [x] Deve ser possivel o usuario realizar check-in em uma academia
 - [ ] Deve ser possivel o validar o check-in do usuario
-- [ ] Deve ser possivel o cadastrar academias
+- [x] Deve ser possivel o cadastrar academias
 
 
 
 ## RNs (Requisitos de Negocio) - Possibilidades que os nossos requisitos funcionais podem tomar - Determinam as condicoes a serem aplicadas a cada requisito funcional (A regra de negocio sempre sera associada a um requisito funcional).
 
 - [x] O usuario nao pode se cadastrar com e-mail duplicado
-- [ ] O usuario nao fazer 2 check-in 2 vezes no mesmo dia
-- [ ] O usuario nao fazer check-in se nao estiver menos de 100m da academia
+- [x] O usuario nao fazer 2 check-in 2 vezes no mesmo dia
+- [x] O usuario nao fazer check-in se nao estiver menos de 100m da academia
 - [ ] O Check-in so pode ser validade apos 20 minutos depois de ser criado
 - [ ] O Check-in so pode ser validado por administradores
 - [ ] Academia so pode ser criada por administradores
