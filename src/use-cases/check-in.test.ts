@@ -9,18 +9,18 @@ let gymsRepository: InMemoryGymsRepository;
 let sut: CheckInUseCase;
 
 describe('Check in Use Case', () => {
-	beforeEach(() => {
+	beforeEach(async () => {
 		checkInUseCase = new InMemoryCheckInRepository();
 		gymsRepository = new InMemoryGymsRepository();
 		sut = new CheckInUseCase(checkInUseCase, gymsRepository);
 
-		gymsRepository.items.push({
+		await gymsRepository.create({
 			id: 'gym_id',
 			title: 'DelsonGym',
 			description: ' ',
 			phone: '',
-			latitude: new Decimal(-12.3469824),
-			logitude: new Decimal(3.5888896),
+			latitude: -12.3469824,
+			logitude: 3.5888896,
 		});
 		vi.useFakeTimers();
 	});
