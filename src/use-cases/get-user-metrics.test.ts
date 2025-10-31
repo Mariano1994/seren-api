@@ -11,7 +11,7 @@ describe('Get user metrics use case', async () => {
 		sut = new GetUserMetricsUseCase(checkInRepository);
 	});
 
-	it('shoul get the number of check ins from a particular user', async () => {
+	it('should get the number of check ins from a particular user', async () => {
 		for (let i = 1; i <= 5; i++) {
 			await checkInRepository.create({
 				user_id: 'user_id',
