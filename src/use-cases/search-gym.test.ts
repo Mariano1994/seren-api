@@ -1,4 +1,3 @@
-import { waitForDebugger } from 'inspector';
 import { beforeEach, describe, expect, it } from 'vitest';
 import { InMemoryGymsRepository } from '../respositories/in-memory-repository/in-memory-gyms-repository.ts';
 import { SearchGymUseCase } from './search-gym.ts';
