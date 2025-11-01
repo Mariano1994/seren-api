@@ -4,7 +4,7 @@ import type { UserRepository } from '../users-repository.ts';
 
 export class PrismaUsersRespository implements UserRepository {
 	async findUserById(id: string) {
-		const userById = await prisma.user.findFirst({
+		const userById = await prisma.user.findUnique({
 			where: {
 				id,
 			},
