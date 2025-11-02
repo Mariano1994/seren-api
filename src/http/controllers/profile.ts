@@ -1,12 +1,20 @@
 import type fastify from 'fastify';
+import { makeGetUserProfileUseCase } from '../../use-cases/factories/make-get-user-profile-use-case.ts';
 
 export async function profile(
 	request: fastify.FastifyRequest,
 	reply: fastify.FastifyReply,
 ) {
-	await request.jwtVerify();
+	const userProfile = await makeGetUserProfileUseCase();
 
-	console.log(request.user.sub);
-	console.log(request.headers.authorization);
-	return reply.status(200).send();
+	const { user } = await userProfile.handler({
+		userId: request.user.sub,
+	});
+
+	return reply.status(200).send({
+		user: {
+			...user,
+			password_hash: undefined,
+		},
+	});
 }
