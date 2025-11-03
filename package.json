@@ -7,7 +7,8 @@
 	"scripts": {
 		"dev": "node --watch --experimental-strip-types src/server.ts",
 		"formatter": "pnpm exec biome check --write",
-		"test": "vitest",
+		"test": "vitest --project unit",
+		"test:e2e": "vitest --project e2e",
 		"test:coverage": "vitest --coverage",
 		"test:ui": "vitest --ui"
 	},
@@ -18,11 +19,13 @@
 		"@biomejs/biome": "2.2.7",
 		"@types/bcryptjs": "3.0.0",
 		"@types/node": "24.9.1",
-		"@vitest/coverage-v8": "4.0.3",
-		"@vitest/ui": "4.0.3",
+		"@vitest/coverage-v8": "4.0.6",
+		"@vitest/ui": "4.0.6",
 		"prisma": "6.18.0",
 		"tsup": "8.5.0",
-		"typescript": "5.9.3"
+		"typescript": "5.9.3",
+		"vite-tsconfig-paths": "5.1.4",
+		"vitest": "4.0.6"
 	},
 	"dependencies": {
 		"@fastify/jwt": "10.0.0",
@@ -31,7 +34,6 @@
 		"dayjs": "1.11.18",
 		"dotenv": "17.2.3",
 		"fastify": "5.6.1",
-		"vitest": "4.0.3",
 		"zod": "4.1.12"
 	}
 }
