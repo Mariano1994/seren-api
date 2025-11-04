@@ -10,13 +10,13 @@ const generateDatabaseURL = (schema: string) => {
 	}
 	const url = new URL(process.env.DATABASE_URL);
 
-	url.searchParams.set('shema', schema);
+	url.searchParams.set('schema', schema);
 
 	return url.toString();
 };
 export default (<Environment>{
 	name: 'prisma',
-	transformMode: 'ssr',
+	viteEnvironment: 'ssr',
 	async setup() {
 		//create test database
 		const schema = randomUUID();
@@ -25,7 +25,9 @@ export default (<Environment>{
 
 		process.env.DATABASE_URL = databaseUrl;
 
-		execSync('npx migrate prisma deploy');
+		console.log({ databaseUrl });
+
+		execSync('npx prisma migrate deploy');
 
 		return {
 			async teardown() {
