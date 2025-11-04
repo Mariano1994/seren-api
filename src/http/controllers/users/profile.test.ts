@@ -1,6 +1,6 @@
 import request from 'supertest';
 import { afterAll, beforeAll, describe, expect, it } from 'vitest';
-import { app } from '../../app.ts';
+import { app } from '../../../app.ts';
 
 describe('Profile (e2e)', () => {
 	beforeAll(async () => {

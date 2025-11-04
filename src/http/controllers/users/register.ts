@@ -1,7 +1,7 @@
 import type fastify from 'fastify';
 import z from 'zod';
-import { UserAlreadyExistsError } from '../../use-cases/erros/user-already-exists-error.ts';
-import { makeRegisterUseCase } from '../../use-cases/factories/make-register-use-case.ts';
+import { UserAlreadyExistsError } from '../../../use-cases/erros/user-already-exists-error.ts';
+import { makeRegisterUseCase } from '../../../use-cases/factories/make-register-use-case.ts';
 
 export async function register(
 	request: fastify.FastifyRequest,
