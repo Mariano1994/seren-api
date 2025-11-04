@@ -15,7 +15,7 @@ export async function nearBy(
 		}),
 	});
 
-	const { latitude, logitude } = nearByGymsQuerySchema.parse(request.body);
+	const { latitude, logitude } = nearByGymsQuerySchema.parse(request.query);
 
 	const fetchNearByGymsUseCase = makeFetchNearByGymUseCase();
 

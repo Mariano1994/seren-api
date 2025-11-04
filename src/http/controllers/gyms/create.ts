@@ -31,5 +31,5 @@ export async function create(
 		logitude,
 	});
 
-	return reply.status(202).send();
+	return reply.status(201).send();
 }

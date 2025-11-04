@@ -11,7 +11,7 @@ export async function search(
 		page: z.coerce.number().min(1).default(1),
 	});
 
-	const { q, page } = searchGymsQuerySchema.parse(request.body);
+	const { q, page } = searchGymsQuerySchema.parse(request.query);
 
 	const searchGyms = makeSearchGymsUseCase();
 
